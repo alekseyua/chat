@@ -1,0 +1,34 @@
+
+
+// .mypost__form
+.mypost__form{
+//mypost__form-posts
+  &-posts{
+    width: 100%;
+    height: 300px;
+    overflow: auto;
+  }
+//mypost__form
+  &-body{
+    margin: 5px;
+  }
+  width: 320px;
+
+  //mypost__input
+  &-input{
+    width: 320px;
+    height: 70px;
+  }
+  //mypost__form-control
+  &-control{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  //mypost__form-btn
+  &-btn{
+    margin: 5px;
+    width: 120px;
+    height: 40px;
+  }
+}
