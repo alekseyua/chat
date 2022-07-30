@@ -12,9 +12,10 @@
     grid-area: c;
     background-color: rgb(50, 60, 190);
     padding: 10px;
-    display: grid;
-    grid-template-columns: 2fr 10fr;
-    column-gap: 5px;
-    border-right: 2px solid #000;
   }
+}
+
+a.active{
+  color:rgb(214, 214, 214);
+  text-decoration: underline;
 }

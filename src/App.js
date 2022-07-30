@@ -9,19 +9,15 @@ const App = () => {
     <div className="app-wrapper">
             <Header />
                     <Navbar />
-              <Routes>
-                <Route  path='/' element={
-                                    <div className={'app-wrapper__content'}>
-                                      <Dialogs /> 
-                                      <Profile />
-                                    </div>                              
-                                  } 
-                />
-                <Route  path='/message' element={<div>Message</div>} />
-                <Route path='/news' element={<din>News</din>} />
-                <Route path='/music' element={<div>Music</div>} />
-                <Route path='/settings' element={<div>Settings</div>} />
-              </Routes>
+                <div className={'app-wrapper__content'}>
+                  <Routes>
+                    <Route  path='/' element={<Profile />} />
+                    <Route  path='/message' element={<Dialogs />} />
+                    <Route path='/news' element={<div>News</div>} />
+                    <Route path='/music' element={<div>Music</div>} />
+                    <Route path='/settings' element={<div>Settings</div>} />
+                  </Routes>
+                </div>                              
 
     </div>
   );
