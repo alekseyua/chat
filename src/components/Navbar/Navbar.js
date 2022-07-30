@@ -1,22 +1,24 @@
 import React from 'react';
 import styles from './navbar.module.scss';
+import {Link} from 'react-router-dom';
+
 const Navbar = () => {
     return(
         <nav className={styles['navbar']}>
         <div>
-          <a  href='#'>profile</a>
+          <Link  to='/'>profile </Link>
         </div>
         <div>
-        <a  href='#'>message</a>
+        <Link  to='/message'>message</Link>
         </div>
         <div>
-        <a href='#'>news</a>
+        <a href='/news'>news</a>
         </div>
         <div>
-        <a href='#'>music</a>
+        <a href='/music'>music</a>
         </div>
         <div>
-        <a href='#'>settings</a>
+        <a href='/settings'>settings</a>
         </div>
       </nav>
     )
