@@ -1,66 +1,28 @@
 import React from 'react';
+import Message from './Message/Message';
+import DialogItem from './DialogItem/DialogItem';
+
 import styles from './dialogs.module.scss';
 
+
 const Dialogs = (props) => {
+
+    const dialogsElements = props.dialogs.map(dialog=> <DialogItem key={`dialog-${dialog.id}`} id={dialog.id} name={dialog.name} />)
+    const messagesElements = props.messages.map(message=> <Message key={`message-${message.id}`} name={message.name} id={message.id} message={message.message} />)
+
     return (
         <div className={styles['dialogs__body']}>
             <div className={styles['dialogs__menu']}>
                 <h3>dialogs...</h3>
                 <ul className={styles['dialogs__list']} >
-                    <li className={styles['dialogs__item']}>Alekseyuadnepr</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
-                    <li className={styles['dialogs__item']}>name users chat</li>
+                    { dialogsElements }
                 </ul>
+               
             </div>
             <div className={styles['dialogs__content']}>
                 dialogs content
                 <ul className={styles['dialogs__content-dialogs']}>
-                    <li className={styles['dialogs-content__body']}>
-                        <div className={styles['dialogs-content__avatar']}>
-                            <img className={styles['dialogs-content__img-avatar']} src='https://th.bing.com/th/id/R.c04b017b6b9d1c189e15e6559aeb3ca8?rik=p7CsD4Hws%2frUyQ&pid=ImgRaw&r=0' />
-                            <p className={styles['dialogs-content__nick-avatar']}>Alekseyuadnepr</p>
-                        </div>
-                        <div className={styles['dialogs-content__message']}>
-                            Content dialogs users nickname Alekseyuadnepr
-                        </div>
-                    </li>
-                    <li className={styles['dialogs-content__body']}>
-                        <div className={styles['dialogs-content__avatar']}>
-                            <img className={styles['dialogs-content__img-avatar']} src='https://th.bing.com/th/id/R.c04b017b6b9d1c189e15e6559aeb3ca8?rik=p7CsD4Hws%2frUyQ&pid=ImgRaw&r=0' />
-                            <p className={styles['dialogs-content__nick-avatar']}>Alekseyuadnepr</p>
-                        </div>
-                        <div className={styles['dialogs-content__message']}>
-                            Content dialogs users nickname Alekseyuadnepr
-                        </div>
-                    </li>
-                    <li className={styles['dialogs-content__body']}>
-                        <div className={styles['dialogs-content__avatar']}>
-                            <img className={styles['dialogs-content__img-avatar']} src='https://th.bing.com/th/id/R.c04b017b6b9d1c189e15e6559aeb3ca8?rik=p7CsD4Hws%2frUyQ&pid=ImgRaw&r=0' />
-                            <p className={styles['dialogs-content__nick-avatar']}>Alekseyuadnepr</p>
-                        </div>
-                        <div className={styles['dialogs-content__message']}>
-                            Content dialogs users nickname Alekseyuadnepr
-                        </div>
-                    </li>
-                    <li className={styles['dialogs-content__body']}>
-                        <div className={styles['dialogs-content__avatar']}>
-                            <img className={styles['dialogs-content__img-avatar']} src='https://th.bing.com/th/id/R.c04b017b6b9d1c189e15e6559aeb3ca8?rik=p7CsD4Hws%2frUyQ&pid=ImgRaw&r=0' />
-                            <p className={styles['dialogs-content__nick-avatar']}>Alekseyuadnepr</p>
-                        </div>
-                        <div className={styles['dialogs-content__message']}>
-                            Content dialogs users nickname Alekseyuadnepr
-                        </div>
-                    </li>
+                    { messagesElements }
                 </ul>
             </div>
         </div>
@@ -68,3 +30,6 @@ const Dialogs = (props) => {
 }
 
 export default Dialogs;
+
+
+

@@ -4,12 +4,12 @@ import styles from './post.module.scss';
 const Post = (props) => {
 
     return(
-              <div className={styles['post-body']}>
+              <div key={props.id} className={styles['post-body']}>
                 <div className={styles['post-avatar']}>
-                  <img className={styles['post-avatar__img']} src='https://www.seoclerk.com/pics/000/748/061/bd1ddcf20243b5366e14524b6b79c773.png' alt='avatar user'/>
+                  <img className={styles['post-avatar__img']} src={props.image} alt='avatar user'/>
                 </div>
-                post 1
-                <span>like</span>
+                  {props.message}
+                <span>like: {props.likes}</span>
               </div>
     )
 }

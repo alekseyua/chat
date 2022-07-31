@@ -1,17 +1,19 @@
 import React from 'react';
 import MyPost from './MyPost/MyPost'
+import ProfileInfo from './ProfileInfo/ProfileInfo';
 import styles from './profile.module.scss';
+ 
+const Profile = (props) => {
 
-const Profile = () => {
-  console.log(styles)
-    return(
+  return(
         <div>
-          <div >
-            <img className={styles['profile__img']} src='https://th.bing.com/th/id/R.c68dda9ba3e0f857241a7d45f2ebf211?rik=YslxNS1Q5FuEeg&pid=ImgRaw&r=0' alt='workboard pic'/>
-          </div>
-          
-          <div>ava + discription</div>
-          <MyPost />
+          <ProfileInfo />          
+          <MyPost 
+            posts={props.posts} 
+            addPost={props.addPost} 
+            updateNewPostText={props.updateNewPostText} 
+            newPostText={props.newPostText}
+          />
         </div>
     )
 }

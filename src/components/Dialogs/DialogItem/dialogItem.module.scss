@@ -1,0 +1,10 @@
+.dialogs{
+    //.dialogs__item{}
+    &__item{
+        padding: 5px;
+        &:hover{
+            cursor: pointer;
+            text-decoration: underline;
+        }
+    }
+}
