@@ -1,30 +1,8 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_MESSAGE = 'UPDATE-MESSAGE';
+import { ADD_MESSAGE, ADD_POST, UPDATE_MESSAGE, UPDATE_NEW_POST_TEXT } from "../const"
+import { profileReducer } from "./profileReducer";
+import { messagesReducer } from './messagesReducer';
+import { sideBarReducer } from './sideBarReducer';
 
-
-export const addPostActionCreater = () => {
-    return {
-        type: ADD_POST
-    }
-}
-
-export const updateNewPostText = (text) => {
-    return {
-        type: UPDATE_NEW_POST_TEXT,
-        text: text,
-    }
-}
-
-export const addMessageActionCreater = () => ({ type: ADD_MESSAGE })
-
-export const updateMessageActionCreater = (text) => {
-    return {
-        type: UPDATE_MESSAGE,
-        text: text,
-    }
-}
 
 const store = {
     _state: {
@@ -179,42 +157,11 @@ const store = {
 
     dispatch(action) {
 
-        switch (action.type) {
-            case ADD_POST:
-                const post = {
-                    id: 9,
-                    message: this._state.profilePage.newPostText,
-                    likes: 10,
-                    image: 'https://www.seoclerk.com/pics/000/748/061/bd1ddcf20243b5366e14524b6b79c773.png',
-                }
+        this._state.profilePage = profileReducer(this._state.profilePage, action);
+        this._state.messagesPage = messagesReducer(this._state.messagesPage, action);
+        this._state.sideBarPage = sideBarReducer(this._state.sideBarPage, action);
+        this._callSubscriber(this._state)
 
-                this._state.profilePage.posts.push(post);
-                this._state.profilePage.newPostText = '';
-                this._callSubscriber(this._state);
-                break;
-            case UPDATE_NEW_POST_TEXT:
-                console.log(this)
-                this._state.profilePage.newPostText = action.text;
-                this._callSubscriber(this._state);
-                break;
-            case ADD_MESSAGE:
-                const message = {
-                    id: 1,
-                    name: 'Alekseyuapnepr',
-                    message: this._state.messagesPage.newMessageText,
-                }
-                this._state.messagesPage.messages.push(message);
-                this._state.messagesPage.newMessageText = '';
-                this._callSubscriber(this._state)
-                break;
-            case UPDATE_MESSAGE:
-                this._state.messagesPage.newMessageText = action.text;
-                this._callSubscriber(this._state);
-                break;
-            default:
-                console.log('other ')
-
-        }
     }
 }
 
