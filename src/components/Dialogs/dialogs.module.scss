@@ -29,7 +29,12 @@
     }
     //dialogs__content{}
     &__content{
-
+        //.dialogs__content-form{}
+        &-form{
+            height: 300px;
+            overflow: auto;
+            margin-bottom: 30px;
+        }
         //.dialogs__content-dialogs{}
         &-dialogs{
             
@@ -39,3 +44,22 @@
 
 }
 
+//.dialogs__form
+.dialogs__form{
+        
+      //.dialogs__form-input{}
+      &-input{}
+      //dialogs__form-control
+      &-control{
+        display: flex;
+        width: 100%;
+        justify-content: flex-start;
+      }
+      //dialogs__form-btn
+      &-btn{
+        margin: 5px;
+        width: 120px;
+        height: 40px;
+        cursor: pointer;
+      }
+    }

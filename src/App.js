@@ -5,7 +5,6 @@ import Profile from './components/Profile/Profile';
 import Dialogs from './components/Dialogs/Dialogs';
 import { Routes, Route } from 'react-router-dom';
 const App = (props) => {
-console.log(props)
 
   return (
     <div className="app-wrapper">
@@ -15,12 +14,17 @@ console.log(props)
                   <Routes>
                     <Route exact path='/' element={<Profile 
                                                       posts={props.state.profilePage.posts} 
-                                                      addPost={props.addPost} 
-                                                      updateNewPostText={props.updateNewPostText} 
                                                       newPostText={props.state.profilePage.newPostText}
+                                                      dispatch={props.dispatch}
                                                     />} 
                     />
-                    <Route exact path='/dialogs' element={<Dialogs dialogs={props.state.messagesPage.dialogs} messages={props.state.messagesPage.messages} />} />
+                    <Route exact path='/dialogs' element={<Dialogs 
+                                                              dialogs={props.state.messagesPage.dialogs} 
+                                                              messages={props.state.messagesPage.messages}
+                                                              newMessageText={props.state.messagesPage.newMessageText} 
+                                                              dispatch={props.dispatch}
+                                                          />} 
+                    />
                     <Route exaxt path='/news' element={<div>News</div>} />
                     <Route exaxt path='/music' element={<div>Music</div>} />
                     <Route exact path='/settings' element={<div>Settings</div>} />
